@@ -1,8 +1,13 @@
+:root {
+  --text1: #D0D6F9;
+  --text2: #FFFFFF;
+  --dark: #0B0D17;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 .container {
@@ -11,5 +16,5 @@
   min-height: 100vh;
 
   margin: auto;
-  background-color: #0B0D17;
+  /* background-color: var(--dark); */
 }
