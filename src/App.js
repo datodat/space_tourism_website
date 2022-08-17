@@ -1,9 +1,12 @@
+// Css
 import './App.css';
+// Components
+import Header from './components/Header/Header';
 
 const App = () => {
   return (
-    <div>
-      
+    <div className='container'>
+      <Header />
     </div>
   );
 }
