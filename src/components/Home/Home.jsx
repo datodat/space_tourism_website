@@ -8,8 +8,10 @@ import backgroundTablet from '../../assets/home/background-home-tablet.jpg';
 import backgroundMobile from '../../assets/home/background-home-mobile.jpg';
 
 const Home = () => {
+  // Background Image
   const [backImg, setBackImg] = useState(backgroundDesktop);
 
+  // Changing background image
   window.addEventListener('resize', () => {
     if(window.innerWidth > 768){
       setBackImg(backgroundDesktop);
@@ -24,7 +26,9 @@ const Home = () => {
 
   return (
     <div className='home'>
-      <img src={backImg} alt='home-background' />
+      {/* Background Image */}
+      <img src={backImg} alt='background' />
+      {/* Left Side */}
       <div className='home-left'>
         <p>so, you want to travel to</p>
         <p>space</p>
@@ -36,6 +40,7 @@ const Home = () => {
           truly out of this world experience!
         </p>
       </div>
+      {/* Right Side */}
       <div className='home-right'>
           <NavLink to='/destination'>
             explore

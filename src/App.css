@@ -8,13 +8,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* overflow: hidden; */
 }
 
+body::-webkit-scrollbar {
+  width: 3px;
+}
+body::-webkit-scrollbar-thumb {
+  width: 3px;
+  background-color: #313131;
+}
+body::-webkit-scrollbar-track {
+  width: 3px;
+  background-color: #f9f9f9;
+}
+
+/* Container */
 .container {
   width: 100%;
   max-width: 1920px;
   min-height: 100vh;
 
   margin: auto;
+  position: relative;
 }

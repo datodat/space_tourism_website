@@ -11,6 +11,7 @@ import firstImg from '../../assets/technology/image-launch-vehicle-portrait.jpg'
 import secondImg from '../../assets/technology/image-spaceport-portrait.jpg';
 import thirdImg from '../../assets/technology/image-space-capsule-portrait.jpg';
 
+// Technology Data
 const techData = [
   {
     info: data.technology[0],
@@ -27,9 +28,12 @@ const techData = [
 ]
 
 const Technology = () => {
+  // Slider Current Page
   const [currentPage, setCurrentPage] = useState(0);
+  // Background Image
   const [backImg, setBackImg] = useState(backgroundDesktop);
 
+  // Changing background image
   window.addEventListener('resize', () => {
     if(window.innerWidth > 768){
       setBackImg(backgroundDesktop);
@@ -44,7 +48,9 @@ const Technology = () => {
 
   return (
     <div className='technology'>
+      {/* Background Image */}
       <img className='background-img' src={backImg} alt='background' />
+      {/* Left Side */}
       <p><span>03</span> space launch 101</p>
       <div>
         <div className='tech-nav'>
@@ -68,7 +74,9 @@ const Technology = () => {
           </span>
         </div>
         <div className='tech-info'>
-          <p className='tech-terminology'>the terminology...</p>
+          <p className='tech-terminology'>
+            the terminology...
+          </p>
           <p className='tech-name'>
             {techData[currentPage].info.name}
           </p>
@@ -77,6 +85,7 @@ const Technology = () => {
           </p>
         </div>
       </div>
+      {/* Right Side Image */}
       <img className='tech-img' src={techData[currentPage].img} alt='tech-img' />
     </div>
   );

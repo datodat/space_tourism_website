@@ -63,7 +63,7 @@
 .crew-navigation {
   display: flex;
   position: fixed;
-  bottom: 100px;
+  bottom: 60px;
 }
 .crew-navigation span {
   width: 15px;

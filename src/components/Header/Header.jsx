@@ -1,21 +1,25 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+// Css
 import './header.css';
+// Logo
 import logo from '../../assets/shared/logo.svg';
 
 const Header = () => {
+  // Sandwich Menu
   const [isOpened, setIsOpened] = useState(false);
 
   window.addEventListener('resize', () => {
     if(window.innerWidth > 375){
       setIsOpened(false);
     }
-  })
+  });
 
   return (
     <header className='header'>
+      {/* Logo */}
       <img src={logo} alt='logo' />
-      {/* <hr /> */}
+      {/* Navbar */}
       <nav
         style={{ right: isOpened ? '0' : '-250px' }}
       >
@@ -44,9 +48,10 @@ const Header = () => {
           <span>03</span> technology
         </NavLink>
       </nav>
+      {/* Sandwich Menu */}
       <div 
         onClick={() => setIsOpened(!isOpened)}
-        className={isOpened ? 'sandwitch opened' : 'sandwitch'}
+        className={isOpened ? 'sandwich-menu opened' : 'sandwich-menu'}
       >
         <div></div>
         <div></div>

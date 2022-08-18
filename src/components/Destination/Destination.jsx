@@ -5,23 +5,41 @@ import './destination.css';
 import backgroundDesktop from '../../assets/destination/background-destination-desktop.jpg';
 import backgroundTablet from '../../assets/destination/background-destination-tablet.jpg';
 import backgroundMobile from '../../assets/destination/background-destination-mobile.jpg';
+// Data
 import data from '../../data.json';
 import moonImg from '../../assets/destination/image-moon.png';
 import marsImg from '../../assets/destination/image-mars.png';
 import europaImg from '../../assets/destination/image-europa.png';
 import titanImg from '../../assets/destination/image-titan.png';
 
-const moonInfo = data.destinations[0];
-const marsInfo = data.destinations[1];
-const europaInfo = data.destinations[2];
-const titanInfo = data.destinations[3];
+// Destination Info
+const destinationData = [
+  {
+    info: data.destinations[0],
+    img: moonImg
+  },
+  {
+    info: data.destinations[1],
+    img: marsImg
+  },
+  {
+    info: data.destinations[2],
+    img: europaImg
+  },
+  {
+    info: data.destinations[3],
+    img: titanImg
+  }
+]
 
 const Destination = () => {
-  const [chosen, setChosen] = useState('moon');
-  const [info, setInfo] = useState(null);
-  const [infoImg, setInfoImg] = useState(null);
+  // Current Tab
+  const [tab, setTab] = useState('moon');
+  const [info, setInfo] = useState(destinationData[0]);
+  // Background Image
   const [backImg, setBackImg] = useState(backgroundDesktop);
 
+  // Changing background image
   window.addEventListener('resize', () => {
     if(window.innerWidth > 768){
       setBackImg(backgroundDesktop);
@@ -35,69 +53,68 @@ const Destination = () => {
   });
 
   useEffect(() => {
-    if(chosen === 'moon'){
-      setInfo(moonInfo);
-      setInfoImg(moonImg);
-    }else if(chosen === 'mars'){
-      setInfo(marsInfo);
-      setInfoImg(marsImg);
-    }else if(chosen === 'europa'){
-      setInfo(europaInfo);
-      setInfoImg(europaImg);
-    }else if(chosen === 'titan'){
-      setInfo(titanInfo);
-      setInfoImg(titanImg);
+    if(tab === 'moon'){
+      setInfo(destinationData[0]);
+    }else if(tab === 'mars'){
+      setInfo(destinationData[1]);
+    }else if(tab === 'europa'){
+      setInfo(destinationData[2]);
+    }else if(tab === 'titan'){
+      setInfo(destinationData[3]);
     }else{
       return;
     }
-  }, [chosen])
+  }, [tab])
 
   return (
     <div className='destination'>
+      {/* Background Image */}
       <img src={backImg} alt='background' />
-
+      {/* Left Side */}
       <div className="destination-left">
         <p><span>01</span> pick your destination</p>
-        {infoImg && <img src={infoImg} alt='info-img' />}
+        <img src={info.img} alt='destination-img' />
       </div>
+      {/* Right Side */}
       <div className="destination-right">
+        {/* Navbar */}
         <ul>
           <li 
-            className={chosen === 'moon' ? 'active' : ''} 
-            onClick={() => setChosen('moon')}
+            className={tab === 'moon' ? 'active' : ''} 
+            onClick={() => setTab('moon')}
           >
             moon
           </li>
           <li 
-            className={chosen === 'mars' ? 'active' : ''} 
-            onClick={() => setChosen('mars')}
+            className={tab === 'mars' ? 'active' : ''} 
+            onClick={() => setTab('mars')}
           >
             mars
           </li>
           <li 
-            className={chosen === 'europa' ? 'active' : ''} 
-            onClick={() => setChosen('europa')}
+            className={tab === 'europa' ? 'active' : ''} 
+            onClick={() => setTab('europa')}
           >
             europa
           </li>
           <li 
-            className={chosen === 'titan' ? 'active' : ''} 
-            onClick={() => setChosen('titan')}
+            className={tab === 'titan' ? 'active' : ''} 
+            onClick={() => setTab('titan')}
           >
             titan
           </li>
         </ul>
-        <p className='name-p'>{info && info.name}</p>
-        <p className='description-p'>{info && info.description}</p>
+        <p className='name-p'>{info.info.name}</p>
+        <p className='description-p'>{info.info.description}</p>
         <hr />
         <div className='more-info-div'>
           <div>
             <p>avg. distance</p>
-            <p>{info && info.distance}</p>
+            <p>{info.info.distance}</p>
           </div>
           <div>
             <p>est. travel time</p>
-            <p>{info && info.travel}</p>
+            <p>{info.info.travel}</p>
           </div>
         </div>
       </div>

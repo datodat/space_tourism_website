@@ -28,7 +28,7 @@
   opacity: 0.25;
 }
 
-.sandwitch {
+.sandwich-menu {
   display: none;
   flex-direction: column;
   align-items: center;
@@ -38,7 +38,7 @@
   margin-right: 20px;
   cursor: pointer;
 }
-.sandwitch div {
+.sandwich-menu div {
   width: 24px;
   height: 3px;
   background-color: var(--text1);
@@ -101,17 +101,14 @@
   .header {
     top: 0;
   }
-
   .header nav {
     padding: 0 30px;
   }
-
   .header nav a {
     margin: 0 15px;
     font-size: 14px;
     letter-spacing: 1px;
   }
-
   .header img {
     margin-left: 10px;
   }
@@ -121,7 +118,6 @@
   .header nav {
     padding: 0 10px;
   }
-
   .header nav a {
     margin: 0 10px;
     font-size: 12px;
@@ -156,7 +152,14 @@
     width: 100%;
     box-shadow: none !important;
   }
-  .sandwitch {
+  .sandwich-menu {
     display: flex;
+  }
+}
+
+/* If Device Width is more than 1920px */
+@media (min-width: 1920px) {
+  .header {
+    position: absolute;
   }
 }
