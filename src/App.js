@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Destination from './components/Destination/Destination';
+import Crew from './components/Crew/Crew';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Header />
 
       <Routes>
+        <Route path='/crew' element={<Crew />} />
         <Route path='/destination' element={<Destination />} />
         <Route path='/' element={<Home />} />
       </Routes>
