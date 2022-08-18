@@ -1,6 +1,6 @@
 .crew {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   position: relative;
   display: flex;
@@ -15,7 +15,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   object-fit: cover;
   z-index: -1;
 }
@@ -94,5 +94,119 @@
   object-fit: cover;
   position: fixed;
   bottom: 0;
-  right: 150px;
+  right: 10%;
+}
+
+/* R E S P O N S I V E */
+
+@media (max-width: 1200px) {
+  .crew-right img {
+    right: 5%;
+    width: 350px;
+  }
+
+  .crew-left p:first-child {
+    font-size: 22px;
+  }
+
+  .crew-role {
+    font-size: 26px;
+    margin-top: 60px;
+  }
+
+  .crew-name {
+    font-size: 36px;
+  }
+
+  .crew-bio {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .crew-navigation {
+    bottom: 60px
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+  .crew {
+    flex-direction: column;
+  }
+  .crew > div {
+    width: 100%;
+  }
+
+  .crew-navigation {
+    position: static;
+  }
+
+  .crew-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 120px 0 0;
+  }
+  .crew-name,
+  .crew-bio,
+  .crew-navigation {
+    margin-top: 15px;
+  }
+
+  .crew-right {
+    margin-top: 60px;
+  }
+  .crew-right img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 50%;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 375px) {
+  .crew {
+    flex-direction: column-reverse;
+  }
+  .crew-left p:first-child {
+    position: fixed;
+    top: 80px;
+  }
+
+  .crew-right {
+    width: 90% !important;
+    margin: 150px auto 0;
+    border-bottom: 1px solid #383B4B;
+    padding-bottom: 0 !important;
+  }
+  .crew-right img {
+    bottom: -4px !important;
+  }
+
+  .crew-left {
+    position: relative;
+    margin-top: 0;
+    padding-bottom: 20px;
+  }
+  .crew-navigation {
+    position: absolute;
+    top: 20px;
+  }
+  .crew-role {
+    margin-top: 100px;
+    font-size: 20px;
+  }
+  .crew-name {
+    font-size: 22px;
+  }
+  .crew-bio {
+    font-size: 12px;
+    line-height: 26px;
+    line-height: 22px;
+  }
 }
