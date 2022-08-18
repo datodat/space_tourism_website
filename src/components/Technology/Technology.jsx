@@ -2,7 +2,9 @@ import { useState } from 'react';
 // Css
 import './technology.css';
 // Background
-import backImg from '../../assets/technology/background-technology-desktop.jpg';
+import backgroundDesktop from '../../assets/technology/background-technology-desktop.jpg';
+import backgroundTablet from '../../assets/technology/background-technology-tablet.jpg';
+import backgroundMobile from '../../assets/technology/background-technology-mobile.jpg';
 // Data
 import data from '../../data.json';
 import firstImg from '../../assets/technology/image-launch-vehicle-portrait.jpg';
@@ -26,6 +28,19 @@ const techData = [
 
 const Technology = () => {
   const [currentPage, setCurrentPage] = useState(0);
+  const [backImg, setBackImg] = useState(backgroundDesktop);
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 768){
+      setBackImg(backgroundDesktop);
+    }
+    if(window.innerWidth < 768 && window.innerWidth > 375){
+      setBackImg(backgroundTablet);
+    }
+    if(window.innerWidth < 375){
+      setBackImg(backgroundMobile);
+    }
+  });
 
   return (
     <div className='technology'>

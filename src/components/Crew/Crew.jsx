@@ -2,7 +2,9 @@ import { useState } from 'react';
 // Css
 import './crew.css';
 // Background
-import backImg from '../../assets/crew/background-crew-desktop.jpg';
+import backgroundDesktop from '../../assets/crew/background-crew-desktop.jpg';
+import backgroundTablet from '../../assets/crew/background-crew-tablet.jpg';
+import backgroundMobile from '../../assets/crew/background-crew-mobile.jpg';
 import data from '../../data.json';
 import firstImg from '../../assets/crew/image-douglas-hurley.png';
 import secondImg from '../../assets/crew/image-mark-shuttleworth.png';
@@ -26,8 +28,20 @@ const crewData = [
 ];
 
 const Crew = () => {
-  const [info, setInfo] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
+  const [backImg, setBackImg] = useState(backgroundDesktop);
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 768){
+      setBackImg(backgroundDesktop);
+    }
+    if(window.innerWidth < 768 && window.innerWidth > 375){
+      setBackImg(backgroundTablet);
+    }
+    if(window.innerWidth < 375){
+      setBackImg(backgroundMobile);
+    }
+  });
 
   return (
     <div className='crew'>

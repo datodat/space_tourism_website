@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 // Css
 import './destination.css';
 // Background
-import backImg from '../../assets/destination/background-destination-desktop.jpg';
+import backgroundDesktop from '../../assets/destination/background-destination-desktop.jpg';
+import backgroundTablet from '../../assets/destination/background-destination-tablet.jpg';
+import backgroundMobile from '../../assets/destination/background-destination-mobile.jpg';
 import data from '../../data.json';
 import moonImg from '../../assets/destination/image-moon.png';
 import marsImg from '../../assets/destination/image-mars.png';
@@ -18,6 +20,19 @@ const Destination = () => {
   const [chosen, setChosen] = useState('moon');
   const [info, setInfo] = useState(null);
   const [infoImg, setInfoImg] = useState(null);
+  const [backImg, setBackImg] = useState(backgroundDesktop);
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 768){
+      setBackImg(backgroundDesktop);
+    }
+    if(window.innerWidth < 768 && window.innerWidth > 375){
+      setBackImg(backgroundTablet);
+    }
+    if(window.innerWidth < 375){
+      setBackImg(backgroundMobile);
+    }
+  });
 
   useEffect(() => {
     if(chosen === 'moon'){

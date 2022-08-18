@@ -130,7 +130,10 @@
 
 /* Mobile */
 
-@media (max-width: 1375px) {
+@media (max-width: 375px) {
+  .header {
+    padding-top: 10px;
+  }
   .header nav {
     display: none;
     padding: 20px;
