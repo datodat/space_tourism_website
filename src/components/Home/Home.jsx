@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 // Css
 import './home.css';
 // Background
@@ -36,9 +37,9 @@ const Home = () => {
         </p>
       </div>
       <div className='home-right'>
-        <button>
-          explore
-        </button>
+          <NavLink to='/destination'>
+            explore
+          </NavLink>
       </div>
     </div>
   )
