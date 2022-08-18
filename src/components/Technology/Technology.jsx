@@ -23,7 +23,6 @@ const techData = [
     img: thirdImg
   }
 ]
-console.log(techData[0]);
 
 const Technology = () => {
   const [currentPage, setCurrentPage] = useState(0);
